@@ -1,0 +1,157 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>top.onceio</groupId>
+  <artifactId>onceio-servlet</artifactId>
+  <version>0.0.1</version>
+  
+	<name>onceio</name>
+	<description>onceio is an easy to using and learnning ORM framework.</description>
+	<url>http://www.onceio.top/</url>
+	<developers>
+		<developer>
+			<name>william-xian</name>
+			<email>1520070240@qq.com</email>
+		</developer>
+	</developers>
+	
+	<licenses>
+		<license>
+			<name>The Apache Software License, Version 2.0</name>
+			<url>http://www.apache.org/licenses/LICENSE-2.0.txt</url>
+			<distribution>repo</distribution>
+		</license>
+	</licenses>
+	<scm>
+		<connection>scm:git:https://github.com/william-xian/onceio.git</connection>
+		<developerConnection>scm:git:https://github.com/william-xian/onceio.git</developerConnection>
+		<url>https://github.com/william-xian/onceio</url>
+	</scm>
+
+	<profiles>
+		<profile>
+			<id>release</id>
+			<build>
+				<plugins>
+					<!-- Source -->
+					<plugin>
+						<groupId>org.apache.maven.plugins</groupId>
+						<artifactId>maven-source-plugin</artifactId>
+						<version>2.2.1</version>
+						<executions>
+							<execution>
+								<phase>package</phase>
+								<goals>
+									<goal>jar-no-fork</goal>
+								</goals>
+							</execution>
+						</executions>
+					</plugin>
+					<!-- Javadoc -->
+					<plugin>
+						<groupId>org.apache.maven.plugins</groupId>
+						<artifactId>maven-javadoc-plugin</artifactId>
+						<version>2.10.4</version>
+						<configuration>
+							<encoding>UTF8</encoding>
+							<aggregate>true</aggregate>
+							<charset>UTF8</charset>
+							<docencoding>UTF8</docencoding>
+						</configuration>
+						<executions>
+							<execution>
+								<id>attach-javadocs</id>
+								<phase>package</phase>
+								<goals>
+									<goal>jar</goal>
+								</goals>
+								<configuration>
+									<additionalparam>-Xdoclint:none</additionalparam>
+								</configuration>
+							</execution>
+						</executions>
+					</plugin>
+					<plugin>
+						<groupId>org.apache.maven.plugins</groupId>
+						<artifactId>maven-gpg-plugin</artifactId>
+						<version>1.6</version>
+						<executions>
+							<execution>
+								<id>sign-artifacts</id>
+								<phase>verify</phase>
+								<goals>
+									<goal>sign</goal>
+								</goals>
+							</execution>
+						</executions>
+					</plugin>
+				</plugins>
+			</build>
+			<distributionManagement>
+				<!-- -->
+				<snapshotRepository>
+					<id>sonatype-nexus-snapshots</id>
+					<url>https://oss.sonatype.org/content/repositories/snapshots</url>
+				</snapshotRepository>
+
+				<repository>
+					<id>sonatype-nexus-staging</id>
+					<url>https://oss.sonatype.org/service/local/staging/deploy/maven2</url>
+				</repository>
+			</distributionManagement>
+		</profile>
+	</profiles>
+	
+  <properties>
+  	<jetty.scope>compile</jetty.scope>
+  	<onceio.ver>0.0.1</onceio.ver>
+  </properties>
+  
+  <dependencies>
+  	<dependency>  
+  		<groupId>top.onceio</groupId>
+  		<artifactId>onceio-core</artifactId>
+  		<version>${onceio.ver}</version>
+	</dependency>
+  	<dependency>
+  		<groupId>com.google.code.gson</groupId>
+  		<artifactId>gson</artifactId>
+  		<version>2.8.1</version>
+  		<scope>compile</scope>
+  	</dependency>
+	<dependency>
+    	<groupId>javax.servlet</groupId>
+    	<artifactId>javax.servlet-api</artifactId>
+    	<version>3.1.0</version>
+    	<scope>provided</scope>
+	</dependency>
+	<dependency>
+		<groupId>org.eclipse.jetty.aggregate</groupId>
+		<artifactId>jetty-all</artifactId>
+		<version>9.0.0.v20130308</version>
+		<scope>${jetty.scope}</scope>
+	</dependency>
+  </dependencies>
+  
+	<build>
+		<resources>
+			<resource>
+				<directory>src/main/java</directory>
+				<excludes>
+					<exclude>**/*.java</exclude>
+				</excludes>
+			</resource>
+		</resources>
+		<plugins>
+			<plugin>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<version>3.5.1</version>
+				<configuration>
+					<source>1.8</source>
+					<target>1.8</target>
+					<compilerVersion>1.8</compilerVersion>
+					<encoding>UTF-8</encoding>
+				</configuration>
+			</plugin>
+		</plugins>
+	</build>
+</project>
