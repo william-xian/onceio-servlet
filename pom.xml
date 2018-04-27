@@ -4,8 +4,8 @@
   <artifactId>onceio-servlet</artifactId>
   <version>0.0.1</version>
   
-	<name>onceio</name>
-	<description>onceio is an easy to using and learnning ORM framework.</description>
+	<name>onceio-servlet</name>
+	<description>A plugin for onceio</description>
 	<url>http://www.onceio.top/</url>
 	<developers>
 		<developer>
@@ -22,9 +22,9 @@
 		</license>
 	</licenses>
 	<scm>
-		<connection>scm:git:https://github.com/william-xian/onceio.git</connection>
-		<developerConnection>scm:git:https://github.com/william-xian/onceio.git</developerConnection>
-		<url>https://github.com/william-xian/onceio</url>
+		<connection>scm:git:https://github.com/william-xian/onceio-servlet.git</connection>
+		<developerConnection>scm:git:https://github.com/william-xian/onceio-servlet.git</developerConnection>
+		<url>https://github.com/william-xian/onceio-servlet</url>
 	</scm>
 
 	<profiles>
