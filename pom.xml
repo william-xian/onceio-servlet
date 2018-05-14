@@ -2,7 +2,7 @@
   <modelVersion>4.0.0</modelVersion>
   <groupId>top.onceio</groupId>
   <artifactId>onceio-servlet</artifactId>
-  <version>0.0.2</version>
+  <version>0.0.4</version>
   
 	<name>onceio-servlet</name>
 	<description>A plugin for onceio</description>
@@ -103,7 +103,7 @@
 	
   <properties>
   	<jetty.scope>compile</jetty.scope>
-  	<onceio.ver>0.0.2</onceio.ver>
+  	<onceio.ver>0.0.4</onceio.ver>
   </properties>
   
   <dependencies>

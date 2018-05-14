@@ -47,10 +47,10 @@ public class OIODispatcherServlet extends HttpServlet {
 	private static void loadBeans(Class<?> cnf) {
 		BeansIn beansPackage = cnf.getDeclaredAnnotation(BeansIn.class);
 		if (beansPackage != null && beansPackage.value().length != 0) {
-			BeansEden.get().resovle(beansPackage.value());
+			BeansEden.get().resovle(beansPackage.conf(),beansPackage.value());
 		} else {
 			String pkg = cnf.getPackage().getName();
-			BeansEden.get().resovle(pkg);
+			BeansEden.get().resovle(new String[]{"conf"},new String[]{pkg});
 		}
 
 	}
